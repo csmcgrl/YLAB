@@ -1,12 +1,9 @@
 const createThanksWindow = (authWindow) => {
-  const windowAfterSubmit = document.createElement('div');  
-const successAuth = document.createElement('p')
-successAuth.textContent = 'Авторизация прошла успешно!';
- windowAfterSubmit.classList.add('success_authorization_block')
- successAuth.classList.add('success_authorization_text')
-  windowAfterSubmit.prepend(successAuth);
-  authWindow.prepend(windowAfterSubmit);
-  
+  const successAuth = document.createElement('p');
+  successAuth.textContent = 'Авторизация прошла успешно!';
+  successAuth.classList.add('success_authorization_text');
+  authWindow.innerHTML = '';
+  authWindow.appendChild(successAuth);
 }
 
 
