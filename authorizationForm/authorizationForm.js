@@ -12,9 +12,23 @@ successAuth.textContent = 'Авторизация прошла успешно!';
 
 document.addEventListener('submit', (e) => {
   e.preventDefault();
-  alert('Ваши данные были отправлены на сервер.')
-  const authWindow = document.querySelector('.form_auth_block_content');
-  authWindow.innerHTML = '';
-  createThanksWindow(authWindow);
-})
+ const authWindow = document.querySelector('.form_auth_block_content');
+  const email = document.querySelector('input[name="auth_email"]').value;
+  const password = document.querySelector('input[name="auth_pass"]').value;
+
+  fetch('/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, password })
+  })
+  .then(() => {
+    alert('Ваши данные были успешно отправлены на сервер.');
+    createThanksWindow(authWindow);
+  })
+  .catch(() => {
+    alert('Произошла ошибка при отправке данных.');
+  });
+});
 
