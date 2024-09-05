@@ -13,7 +13,7 @@ document.addEventListener('submit', (e) => {
   const email = document.querySelector('input[name="auth_email"]').value;
   const password = document.querySelector('input[name="auth_pass"]').value;
 
-  fetch('/submit', {
+  fetch('/url', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
